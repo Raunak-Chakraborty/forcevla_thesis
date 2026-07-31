@@ -71,10 +71,55 @@ class Pi0_GuidanceConfig(_model.BaseModelConfig):
     paligemma_variant: _gemma.Variant = "gemma_2b"
     action_expert_variant: _gemma.Variant = "gemma_300m"
 
-    # Set the model specific defaults.
+    # Internal action container dimension. This may remain 32 for
+    # checkpoint compatibility even when the robot command is seven-dimensional.
     action_dim: int = 32
     action_horizon: int = 50
     max_token_len: int = 48
+
+    # Observation-state and projection dimensions are independent of action_dim.
+    # State layout:
+    #   [proprioception, wrench, optional auxiliary state]
+    state_dim: int = 32
+    proprio_dim: int = 7
+    wrench_dim: int = 6
+    state_proj_dim: int = 32
+
+    def __post_init__(self) -> None:
+        if self.action_dim <= 0:
+            raise ValueError(f"action_dim must be positive, got {self.action_dim}")
+        if self.action_horizon <= 0:
+            raise ValueError(
+                f"action_horizon must be positive, got {self.action_horizon}"
+            )
+        if self.state_dim <= 0:
+            raise ValueError(f"state_dim must be positive, got {self.state_dim}")
+        if self.proprio_dim <= 0:
+            raise ValueError(
+                f"proprio_dim must be positive, got {self.proprio_dim}"
+            )
+        if self.wrench_dim <= 0:
+            raise ValueError(
+                f"wrench_dim must be positive, got {self.wrench_dim}"
+            )
+        if self.state_proj_dim <= 0:
+            raise ValueError(
+                f"state_proj_dim must be positive, got {self.state_proj_dim}"
+            )
+        if self.state_dim < self.proprio_dim + self.wrench_dim:
+            raise ValueError(
+                "state_dim must contain the configured proprioception and "
+                "wrench values: "
+                f"state_dim={self.state_dim}, "
+                f"proprio_dim={self.proprio_dim}, "
+                f"wrench_dim={self.wrench_dim}"
+            )
+        if self.state_proj_dim < self.proprio_dim:
+            raise ValueError(
+                "state_proj_dim cannot be smaller than proprio_dim: "
+                f"state_proj_dim={self.state_proj_dim}, "
+                f"proprio_dim={self.proprio_dim}"
+            )
 
     @property
     @override
@@ -102,7 +147,7 @@ class Pi0_GuidanceConfig(_model.BaseModelConfig):
                     "left_wrist_0_rgb": image_mask_spec,
                     "right_wrist_0_rgb": image_mask_spec,
                 },
-                state=jax.ShapeDtypeStruct([batch_size, self.action_dim], jnp.float32),
+                state=jax.ShapeDtypeStruct([batch_size, self.state_dim], jnp.float32),
                 tokenized_prompt=jax.ShapeDtypeStruct([batch_size, self.max_token_len], jnp.int32),
                 tokenized_prompt_mask=jax.ShapeDtypeStruct([batch_size, self.max_token_len], bool),
             )
@@ -145,6 +190,10 @@ class Pi0_GuidanceConfig(_model.BaseModelConfig):
 class Pi0_Guidance(_model.BaseModel):
     def __init__(self, config: Pi0_GuidanceConfig, rngs: nnx.Rngs):
         super().__init__(config.action_dim, config.action_horizon, config.max_token_len)
+        self.state_dim = config.state_dim
+        self.proprio_dim = config.proprio_dim
+        self.wrench_dim = config.wrench_dim
+        self.state_proj_dim = config.state_proj_dim
         paligemma_config = _gemma.get_config(config.paligemma_variant)
         action_expert_config = _gemma.get_config(config.action_expert_variant)
         # TODO: rewrite gemma in NNX. For now, use bridge.
@@ -166,7 +215,7 @@ class Pi0_Guidance(_model.BaseModel):
         )
         img.lazy_init(next(iter(config.fake_obs().images.values())), train=False, rngs=rngs)
         self.PaliGemma = nnx.Dict(llm=llm, img=img)
-        self.state_proj = nnx.Linear(config.action_dim, action_expert_config.width, rngs=rngs)
+        self.state_proj = nnx.Linear(config.state_proj_dim, action_expert_config.width, rngs=rngs)
         # self.guidance_proj = nnx.Linear(config.action_dim, 3 * paligemma_config.width, rngs=rngs) ###
         self.action_in_proj = nnx.Linear(config.action_dim, action_expert_config.width, rngs=rngs)
         self.action_time_mlp_in = nnx.Linear(2 * action_expert_config.width, action_expert_config.width, rngs=rngs)
@@ -177,7 +226,7 @@ class Pi0_Guidance(_model.BaseModel):
         #     rngs=rngs
         # )
         self.action_out_proj = nnx.Linear(action_expert_config.width, config.action_dim, rngs=rngs)
-        self.force_in_proj = nnx.Linear(6, paligemma_config.width, rngs=rngs)
+        self.force_in_proj = nnx.Linear(config.wrench_dim, paligemma_config.width, rngs=rngs)
         print("paligemma_config.width: ", paligemma_config.width)
         self.limoe = nnx_bridge.ToNNX(
             _limoe.LIMoEBlock(
@@ -227,15 +276,24 @@ class Pi0_Guidance(_model.BaseModel):
     @at.typecheck
     def embed_suffix(
         self, obs: _model.Observation, noisy_actions: _model.Actions, timestep: at.Float[at.Array, " b"]
-    ) -> tuple[at.Float[at.Array, "b s emb"], at.Bool[at.Array, "b s"], at.Bool[at.Array, " s"], at.Float[at.Array, "b 1 2*emb"]]:  # b t emb2
+    ) -> tuple[at.Float[at.Array, "b s emb"], at.Bool[at.Array, "b s"], at.Bool[at.Array, " s"], at.Float[at.Array, "b 1 force_emb"]]:
         input_mask = []
         ar_mask = []
         tokens = []
-        # obs.state is shape [b, 13] (13 = 7 prio + 6 force, ee pose: xyz+rpy, gripper)
-        observations = jnp.zeros_like(obs.state)
-        observations = observations.at[:, :7].set(obs.state[:, :7]) ## robot state, xyz + rpy + gripper
-        state_token = self.state_proj(observations)[:, None, :] # [b, 1, d]
-        # state_token = self.state_proj(obs.state)[:, None, :] # [b, 1, d]
+        if obs.state.shape[-1] != self.state_dim:
+            raise ValueError(
+                f"Expected observation state dimension {self.state_dim}, "
+                f"got {obs.state.shape[-1]}"
+            )
+
+        proprio_state = obs.state[:, : self.proprio_dim]
+        if self.state_proj_dim > self.proprio_dim:
+            proprio_state = jnp.pad(
+                proprio_state,
+                ((0, 0), (0, self.state_proj_dim - self.proprio_dim)),
+            )
+
+        state_token = self.state_proj(proprio_state)[:, None, :]  # [b, 1, d]
         tokens.append(state_token)
         input_mask.append(jnp.ones((obs.state.shape[0], 1), dtype=jnp.bool_))
         # image/language inputs do not attend to state or actions
@@ -256,7 +314,10 @@ class Pi0_Guidance(_model.BaseModel):
         tokens = jnp.concatenate(tokens, axis=1)
         input_mask = jnp.concatenate(input_mask, axis=1)
         ar_mask = jnp.array(ar_mask)
-        force_tokens = self.force_in_proj(obs.state[:, 7:13])[:, None, :] # [b, 1, 2emb]
+        wrench_start = self.proprio_dim
+        wrench_end = wrench_start + self.wrench_dim
+        force_state = obs.state[:, wrench_start:wrench_end]
+        force_tokens = self.force_in_proj(force_state)[:, None, :]  # [b, 1, emb]
         return tokens, input_mask, ar_mask, force_tokens
 
     @override
