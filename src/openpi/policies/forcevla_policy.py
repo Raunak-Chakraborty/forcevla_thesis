@@ -8,7 +8,7 @@ from openpi.models import model as _model
 def make_forcevla_example() -> dict:
     """Creates a random input example compatible with Flexiv config."""
     return {
-        "state": np.ones((14,)),  # observation.state, 7 ee pose, 1 gripper, 6 force
+        "state": np.ones((13,)),  # xyz + rotation vector + gripper + 6D wrench
         "image": np.random.randint(256, size=(480, 640, 3), dtype=np.uint8), 
         "wrist_image": np.random.randint(256, size=(480, 640, 3), dtype=np.uint8), 
         "prompt": "do something",
@@ -108,3 +108,130 @@ class Forcevla_outputs(transforms.DataTransformFn):
         # For forcevla, we only return the first 7 actions (since the rest is padding), xyz  + RPY + gripper
         # For your own dataset, replace `7` with the action dimension of your dataset.
         return {"actions": np.asarray(data["actions"][:, :7])}
+
+
+@dataclasses.dataclass(frozen=True)
+class DoosanForcevlaInputs(transforms.DataTransformFn):
+    """Maps the explicit three-camera Doosan contract into ForceVLA slots."""
+
+    state_dim: int
+    action_dim: int
+    robot_action_dim: int = 7
+
+    def __post_init__(self) -> None:
+        if self.state_dim <= 0:
+            raise ValueError(
+                f"state_dim must be positive, got {self.state_dim}"
+            )
+        if self.robot_action_dim <= 0:
+            raise ValueError(
+                "robot_action_dim must be positive, "
+                f"got {self.robot_action_dim}"
+            )
+        if self.action_dim < self.robot_action_dim:
+            raise ValueError(
+                "action_dim cannot be smaller than robot_action_dim: "
+                f"action_dim={self.action_dim}, "
+                f"robot_action_dim={self.robot_action_dim}"
+            )
+
+    def __call__(self, data: dict) -> dict:
+        state = np.asarray(data["state"])
+
+        if state.ndim == 0 or state.shape[-1] != self.state_dim:
+            raise ValueError(
+                f"Expected state dimension {self.state_dim}, "
+                f"got {state.shape}"
+            )
+
+        images = data.get("images")
+        if not isinstance(images, dict):
+            raise KeyError(
+                "Expected an 'images' dictionary in the Doosan input"
+            )
+
+        required_cameras = (
+            "external_camera_1",
+            "tcp_camera",
+            "external_camera_2",
+        )
+
+        missing = [
+            name for name in required_cameras if name not in images
+        ]
+
+        if missing:
+            raise KeyError(
+                f"Missing required Doosan camera inputs: {missing}"
+            )
+
+        inputs = {
+            "state": state,
+            "image": {
+                "base_0_rgb": _parse_image(
+                    images["external_camera_1"]
+                ),
+                "left_wrist_0_rgb": _parse_image(
+                    images["tcp_camera"]
+                ),
+                "right_wrist_0_rgb": _parse_image(
+                    images["external_camera_2"]
+                ),
+            },
+            "image_mask": {
+                "base_0_rgb": np.True_,
+                "left_wrist_0_rgb": np.True_,
+                "right_wrist_0_rgb": np.True_,
+            },
+        }
+
+        if "actions" in data:
+            actions = np.asarray(data["actions"])
+
+            if (
+                actions.ndim == 0
+                or actions.shape[-1] != self.robot_action_dim
+            ):
+                raise ValueError(
+                    "Expected semantic robot action dimension "
+                    f"{self.robot_action_dim}, got {actions.shape}"
+                )
+
+            inputs["actions"] = transforms.pad_to_dim(
+                actions,
+                self.action_dim,
+            )
+
+        if "prompt" in data:
+            inputs["prompt"] = data["prompt"]
+
+        return inputs
+
+
+@dataclasses.dataclass(frozen=True)
+class DoosanForcevlaOutputs(transforms.DataTransformFn):
+    """Returns only the meaningful Doosan robot-action channels."""
+
+    robot_action_dim: int = 7
+
+    def __post_init__(self) -> None:
+        if self.robot_action_dim <= 0:
+            raise ValueError(
+                "robot_action_dim must be positive, "
+                f"got {self.robot_action_dim}"
+            )
+
+    def __call__(self, data: dict) -> dict:
+        actions = np.asarray(data["actions"])
+
+        if actions.shape[-1] < self.robot_action_dim:
+            raise ValueError(
+                "Model action output is smaller than the semantic "
+                "Doosan action: "
+                f"model_shape={actions.shape}, "
+                f"robot_action_dim={self.robot_action_dim}"
+            )
+
+        return {
+            "actions": actions[..., : self.robot_action_dim]
+        }
