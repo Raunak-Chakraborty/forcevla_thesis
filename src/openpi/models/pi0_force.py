@@ -320,6 +320,37 @@ class Pi0_Guidance(_model.BaseModel):
         force_tokens = self.force_in_proj(force_state)[:, None, :]  # [b, 1, emb]
         return tokens, input_mask, ar_mask, force_tokens
 
+
+    def _limoe_action_tokens(
+        self,
+        prefix_out,
+        force_tokens,
+    ):
+        """Run LIMoE without allowing padding to shift action slicing."""
+        limoe_input = jnp.concatenate(
+            [prefix_out, force_tokens],
+            axis=1,
+        )
+
+        # LIMoE is configured with four experts. Pad only its temporary
+        # input sequence, then slice using the original sequence length.
+        sequence_length = limoe_input.shape[1]
+        padding = (-sequence_length) % 4
+
+        if padding:
+            limoe_input = jnp.pad(
+                limoe_input,
+                ((0, 0), (0, padding), (0, 0)),
+            )
+
+        limoe_output = self.limoe(limoe_input)
+
+        return limoe_output[0][
+            :,
+            sequence_length - self.action_horizon:
+            sequence_length,
+        ]
+
     @override
     def compute_loss(
         self, rng: at.KeyArrayLike, observation: _model.Observation, actions: _model.Actions, *, train: bool = False
@@ -344,8 +375,14 @@ class Pi0_Guidance(_model.BaseModel):
             [prefix_tokens, suffix_tokens], mask=attn_mask, positions=positions
         )
         
-        limoe_out = self.limoe(jnp.concatenate([prefix_out, force_tokens], axis=1)) ## prefix_out is vlm
-        v_t = self.action_out_proj(limoe_out[0][:, -self.action_horizon :] + suffix_out[:, -self.action_horizon :])
+        limoe_action_tokens = self._limoe_action_tokens(
+            prefix_out,
+            force_tokens,
+        )
+        v_t = self.action_out_proj(
+            limoe_action_tokens
+            + suffix_out[:, -self.action_horizon :]
+        )
         return jnp.mean(jnp.square(v_t - u_t), axis=-1)
 
     @override
@@ -396,8 +433,14 @@ class Pi0_Guidance(_model.BaseModel):
             )
             assert prefix_out is None
 
-            limoe_out = self.limoe(jnp.concatenate([prefix_out, force_tokens], axis=1)) ## prefix_out is vlm
-            v_t = self.action_out_proj(limoe_out[0][:, -self.action_horizon :] + suffix_out[:, -self.action_horizon :])
+            limoe_action_tokens = self._limoe_action_tokens(
+                prefix_out_fix,
+                force_tokens,
+            )
+            v_t = self.action_out_proj(
+                limoe_action_tokens
+                + suffix_out[:, -self.action_horizon :]
+            )
             # v_t = self.action_out_proj(suffix_out[:, -self.action_horizon :])
 
             return x_t + dt * v_t, time + dt
