@@ -65,17 +65,25 @@ class DoosanForcevlaContractTest(unittest.TestCase):
         self.assertEqual(result["state"].shape, (13,))
         self.assertEqual(result["actions"].shape, (50, 7))
 
-    def test_three_real_cameras_map_to_model_slots(self):
+    def test_two_real_cameras_map_to_model_slots(self):
         transform = forcevla_policy.DoosanForcevlaInputs(
             state_dim=13,
             action_dim=7,
         )
 
-        result = transform(self.make_data())
+        data = self.make_data()
+        del data["images"]["external_camera_1"]
+
+        result = transform(data)
 
         np.testing.assert_array_equal(
             result["image"]["base_0_rgb"],
-            self.external_camera_1,
+            forcevla_policy._parse_image(self.external_camera_2),
+        )
+
+        np.testing.assert_array_equal(
+            result["image"]["left_wrist_0_rgb"],
+            forcevla_policy._parse_image(self.tcp_camera),
         )
 
         self.assertEqual(
@@ -89,14 +97,21 @@ class DoosanForcevlaContractTest(unittest.TestCase):
 
         np.testing.assert_array_equal(
             result["image"]["right_wrist_0_rgb"],
-            self.external_camera_2,
+            np.zeros_like(
+                forcevla_policy._parse_image(
+                    self.external_camera_2
+                )
+            ),
         )
 
         self.assertTrue(
-            all(
-                bool(value)
-                for value in result["image_mask"].values()
-            )
+            bool(result["image_mask"]["base_0_rgb"])
+        )
+        self.assertTrue(
+            bool(result["image_mask"]["left_wrist_0_rgb"])
+        )
+        self.assertFalse(
+            bool(result["image_mask"]["right_wrist_0_rgb"])
         )
 
     def test_32d_compatibility_pads_only_actions(self):
@@ -120,19 +135,25 @@ class DoosanForcevlaContractTest(unittest.TestCase):
         )
 
     def test_missing_camera_is_rejected(self):
-        data = self.make_data()
-        del data["images"]["external_camera_2"]
-
         transform = forcevla_policy.DoosanForcevlaInputs(
             state_dim=13,
             action_dim=7,
         )
 
-        with self.assertRaisesRegex(
-            KeyError,
+        for camera_name in (
+            "tcp_camera",
             "external_camera_2",
         ):
-            transform(data)
+            with self.subTest(camera_name=camera_name):
+                data = self.make_data()
+                del data["images"]["external_camera_1"]
+                del data["images"][camera_name]
+
+                with self.assertRaisesRegex(
+                    KeyError,
+                    camera_name,
+                ):
+                    transform(data)
 
     def test_wrong_dimensions_are_rejected(self):
         transform = forcevla_policy.DoosanForcevlaInputs(
@@ -235,7 +256,7 @@ class DoosanForcevlaContractTest(unittest.TestCase):
             and isinstance(node.value, str)
         }
 
-        self.assertIn(
+        self.assertNotIn(
             "observation.images.external_camera_1",
             string_constants,
         )

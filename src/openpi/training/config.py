@@ -484,7 +484,7 @@ class LeRobotForcevlaDataConfig(DataConfigFactory):
 
 @dataclasses.dataclass(frozen=True)
 class LeRobotDoosanForcevlaDataConfig(DataConfigFactory):
-    """LeRobot contract for the three-camera Doosan dataset."""
+    """LeRobot contract for the production two-camera Doosan dataset."""
 
     action_sequence_keys: Sequence[str] = ("action",)
 
@@ -508,10 +508,6 @@ class LeRobotDoosanForcevlaDataConfig(DataConfigFactory):
                 _transforms.RepackTransform(
                     {
                         "images": {
-                            "external_camera_1": (
-                                "observation.images."
-                                "external_camera_1"
-                            ),
                             "tcp_camera": (
                                 "observation.images.tcp_camera"
                             ),

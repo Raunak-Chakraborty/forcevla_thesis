@@ -112,7 +112,7 @@ class Forcevla_outputs(transforms.DataTransformFn):
 
 @dataclasses.dataclass(frozen=True)
 class DoosanForcevlaInputs(transforms.DataTransformFn):
-    """Maps the explicit three-camera Doosan contract into ForceVLA slots."""
+    """Maps the production two-camera Doosan contract into ForceVLA slots."""
 
     state_dim: int
     action_dim: int
@@ -151,7 +151,6 @@ class DoosanForcevlaInputs(transforms.DataTransformFn):
             )
 
         required_cameras = (
-            "external_camera_1",
             "tcp_camera",
             "external_camera_2",
         )
@@ -165,23 +164,24 @@ class DoosanForcevlaInputs(transforms.DataTransformFn):
                 f"Missing required Doosan camera inputs: {missing}"
             )
 
+        external_image = _parse_image(
+            images["external_camera_2"]
+        )
+        tcp_image = _parse_image(
+            images["tcp_camera"]
+        )
+
         inputs = {
             "state": state,
             "image": {
-                "base_0_rgb": _parse_image(
-                    images["external_camera_1"]
-                ),
-                "left_wrist_0_rgb": _parse_image(
-                    images["tcp_camera"]
-                ),
-                "right_wrist_0_rgb": _parse_image(
-                    images["external_camera_2"]
-                ),
+                "base_0_rgb": external_image,
+                "left_wrist_0_rgb": tcp_image,
+                "right_wrist_0_rgb": np.zeros_like(external_image),
             },
             "image_mask": {
                 "base_0_rgb": np.True_,
                 "left_wrist_0_rgb": np.True_,
-                "right_wrist_0_rgb": np.True_,
+                "right_wrist_0_rgb": np.False_,
             },
         }
 
