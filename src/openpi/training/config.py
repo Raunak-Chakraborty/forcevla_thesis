@@ -20,8 +20,8 @@ import openpi.models.pi0_force as pi0_force
 import openpi.models.tokenizer as _tokenizer
 import openpi.policies.aloha_policy as aloha_policy
 import openpi.policies.droid_policy as droid_policy
-import openpi.policies.libero_policy as libero_policy
 import openpi.policies.forcevla_policy as forcevla_policy
+import openpi.policies.libero_policy as libero_policy
 import openpi.shared.download as _download
 import openpi.shared.normalize as _normalize
 import openpi.training.droid_rlds_dataset as droid_rlds_dataset
@@ -283,10 +283,10 @@ class LeRobotLiberoDataConfig(DataConfigFactory):
         # For your own dataset, first figure out what keys your environment passes to the policy server
         # and then modify the mappings below so your dataset's keys get matched to those target keys.
         # The repack transform simply remaps key names here.
-        print("-"*100)
+        print("-" * 100)
         print("libero data is loading..")
-        print("assets_dirs is: {}".format(assets_dirs))
-        print("-"*100)
+        print(f"assets_dirs is: {assets_dirs}")
+        print("-" * 100)
         repack_transform = _transforms.Group(
             inputs=[
                 _transforms.RepackTransform(
@@ -341,7 +341,6 @@ class LeRobotLiberoDataConfig(DataConfigFactory):
             data_transforms=data_transforms,
             model_transforms=model_transforms,
         )
-
 
 
 @dataclasses.dataclass(frozen=True)
@@ -403,7 +402,8 @@ class RLDSDroidDataConfig(DataConfigFactory):
             action_space=self.action_space,
             filter_dict_path=self.filter_dict_path,
         )
-    
+
+
 @dataclasses.dataclass(frozen=True)
 class LeRobotForcevlaDataConfig(DataConfigFactory):
     """
@@ -411,6 +411,7 @@ class LeRobotForcevlaDataConfig(DataConfigFactory):
     For your own dataset, you can copy this class and modify the transforms to match your dataset based on the
     comments below.
     """
+
     # Action keys that will be used to read the action sequence from the dataset.
     action_sequence_keys: Sequence[str] = ("action",)
 
@@ -424,9 +425,9 @@ class LeRobotForcevlaDataConfig(DataConfigFactory):
         # For your own dataset, first figure out what keys your environment passes to the policy server
         # and then modify the mappings below so your dataset's keys get matched to those target keys.
         # The repack transform simply remaps key names here.
-        print("-"*100)
+        print("-" * 100)
         print("ForceVla data is loading..")
-        print("-"*100)
+        print("-" * 100)
         repack_transform = _transforms.Group(
             inputs=[
                 _transforms.RepackTransform(
@@ -447,7 +448,9 @@ class LeRobotForcevlaDataConfig(DataConfigFactory):
         # how to modify the transforms to match your dataset. Once you created your own transforms, you can
         # replace the transforms below with your own.
         data_transforms = _transforms.Group(
-            inputs=[forcevla_policy.Forcevla_inputs(action_dim=model_config.action_dim, model_type=model_config.model_type)],
+            inputs=[
+                forcevla_policy.Forcevla_inputs(action_dim=model_config.action_dim, model_type=model_config.model_type)
+            ],
             outputs=[forcevla_policy.Forcevla_outputs()],
         )
         # One additional data transform: pi0 models are trained on delta actions (relative to the first
@@ -498,23 +501,15 @@ class LeRobotDoosanForcevlaDataConfig(DataConfigFactory):
             model_config,
             pi0_force.Pi0_GuidanceConfig,
         ):
-            raise TypeError(
-                "LeRobotDoosanForcevlaDataConfig requires "
-                "Pi0_GuidanceConfig"
-            )
+            raise TypeError("LeRobotDoosanForcevlaDataConfig requires " "Pi0_GuidanceConfig")
 
         repack_transform = _transforms.Group(
             inputs=[
                 _transforms.RepackTransform(
                     {
                         "images": {
-                            "tcp_camera": (
-                                "observation.images.tcp_camera"
-                            ),
-                            "external_camera_2": (
-                                "observation.images."
-                                "external_camera_2"
-                            ),
+                            "tcp_camera": ("observation.images.tcp_camera"),
+                            "external_camera_2": ("observation.images." "external_camera_2"),
                         },
                         "state": "observation.state",
                         "actions": "action",
@@ -532,11 +527,7 @@ class LeRobotDoosanForcevlaDataConfig(DataConfigFactory):
                     robot_action_dim=7,
                 )
             ],
-            outputs=[
-                forcevla_policy.DoosanForcevlaOutputs(
-                    robot_action_dim=7
-                )
-            ],
+            outputs=[forcevla_policy.DoosanForcevlaOutputs(robot_action_dim=7)],
         )
 
         # The Doosan dataset stores Cartesian delta actions already,
@@ -877,55 +868,75 @@ _CONFIGS = [
         weight_loader=weight_loaders.CheckpointWeightLoader("gs://openpi-assets/checkpoints/pi0_base/params"),
         num_train_steps=20_000,
     ),
-
-
-# Contract-only Doosan configurations. These intentionally use no
-# checkpoint loader and zero training steps until weight loading for
-# the native 7D projections is explicitly validated.
-TrainConfig(
-    name="doosan_forcevla_native_contract",
-    project_name="doosan-forcevla-contract",
-    model=pi0_force.Pi0_GuidanceConfig(
-        paligemma_variant="gemma_2b_lora",
-        action_expert_variant="gemma_300m_lora",
-        state_dim=13,
-        proprio_dim=7,
-        wrench_dim=6,
-        state_proj_dim=7,
-        action_dim=7,
-        action_horizon=50,
+    # Contract-only Doosan configurations. These intentionally use no
+    # checkpoint loader and zero training steps until weight loading for
+    # the native 7D projections is explicitly validated.
+    TrainConfig(
+        name="doosan_forcevla_native_contract",
+        project_name="doosan-forcevla-contract",
+        model=pi0_force.Pi0_GuidanceConfig(
+            paligemma_variant="gemma_2b_lora",
+            action_expert_variant="gemma_300m_lora",
+            state_dim=13,
+            proprio_dim=7,
+            wrench_dim=6,
+            state_proj_dim=7,
+            action_dim=7,
+            action_horizon=50,
+        ),
+        data=LeRobotDoosanForcevlaDataConfig(
+            repo_id="doosan_peg_in_hole_v0",
+            base_config=DataConfig(prompt_from_task=True),
+        ),
+        num_train_steps=0,
+        batch_size=1,
+        ema_decay=None,
+        wandb_enabled=False,
     ),
-    data=LeRobotDoosanForcevlaDataConfig(
-        repo_id="doosan_peg_in_hole_v0",
-        base_config=DataConfig(prompt_from_task=True),
+    TrainConfig(
+        name="doosan_forcevla_32d_compat_contract",
+        project_name="doosan-forcevla-contract",
+        model=pi0_force.Pi0_GuidanceConfig(
+            paligemma_variant="gemma_2b_lora",
+            action_expert_variant="gemma_300m_lora",
+            state_dim=13,
+            proprio_dim=7,
+            wrench_dim=6,
+            state_proj_dim=32,
+            action_dim=32,
+            action_horizon=50,
+        ),
+        data=LeRobotDoosanForcevlaDataConfig(
+            repo_id="doosan_peg_in_hole_v0",
+            base_config=DataConfig(prompt_from_task=True),
+        ),
+        num_train_steps=0,
+        batch_size=1,
+        ema_decay=None,
+        wandb_enabled=False,
     ),
-    num_train_steps=0,
-    batch_size=1,
-    ema_decay=None,
-    wandb_enabled=False,
-),
-TrainConfig(
-    name="doosan_forcevla_32d_compat_contract",
-    project_name="doosan-forcevla-contract",
-    model=pi0_force.Pi0_GuidanceConfig(
-        paligemma_variant="gemma_2b_lora",
-        action_expert_variant="gemma_300m_lora",
-        state_dim=13,
-        proprio_dim=7,
-        wrench_dim=6,
-        state_proj_dim=32,
-        action_dim=32,
-        action_horizon=50,
+    TrainConfig(
+        name="doosan_forcevla_25d_32d_compat_contract",
+        project_name="doosan-forcevla-contract",
+        model=pi0_force.Pi0_GuidanceConfig(
+            paligemma_variant="gemma_2b_lora",
+            action_expert_variant="gemma_300m_lora",
+            state_dim=25,
+            proprio_dim=19,
+            wrench_dim=6,
+            state_proj_dim=32,
+            action_dim=32,
+            action_horizon=50,
+        ),
+        data=LeRobotDoosanForcevlaDataConfig(
+            repo_id="doosan_peg_in_hole_v0",
+            base_config=DataConfig(prompt_from_task=True),
+        ),
+        num_train_steps=0,
+        batch_size=1,
+        ema_decay=None,
+        wandb_enabled=False,
     ),
-    data=LeRobotDoosanForcevlaDataConfig(
-        repo_id="doosan_peg_in_hole_v0",
-        base_config=DataConfig(prompt_from_task=True),
-    ),
-    num_train_steps=0,
-    batch_size=1,
-    ema_decay=None,
-    wandb_enabled=False,
-),
     TrainConfig(
         name="forcevla_lora",
         model=pi0_force.Pi0_GuidanceConfig(paligemma_variant="gemma_2b_lora", action_expert_variant="gemma_300m_lora"),
