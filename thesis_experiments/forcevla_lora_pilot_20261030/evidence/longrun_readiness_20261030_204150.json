@@ -1,0 +1,30 @@
+{
+  "mode": "READINESS_ONLY_NO_TRAINING",
+  "config_status": "PROVISIONAL",
+  "training_steps": 30000,
+  "batch_size": 2,
+  "fsdp_devices": 1,
+  "num_workers": 4,
+  "optimizer": {
+    "b1": 0.9,
+    "b2": 0.95,
+    "eps": 1e-08,
+    "weight_decay": 1e-10,
+    "clip_gradient_norm": 1.0
+  },
+  "lr_schedule": {
+    "warmup_steps": 1000,
+    "peak_lr": 2.5e-05,
+    "decay_steps": 30000,
+    "decay_lr": 2.5e-06
+  },
+  "save_interval": 1000,
+  "keep_period": 10000,
+  "latest_checkpoint_gib": 5.85,
+  "disk_free_gib": 41.39,
+  "full_validation_available": true,
+  "stratified_validation_available": true,
+  "resume_state_verified_in_previous_test": true,
+  "exact_sampler_resume": false,
+  "long_training_authorized": false
+}

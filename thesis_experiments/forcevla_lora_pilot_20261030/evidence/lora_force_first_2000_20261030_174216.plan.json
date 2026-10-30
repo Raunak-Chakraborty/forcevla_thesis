@@ -1,0 +1,36 @@
+{
+  "experiment": "lora_force_first_2000_20261030_174216",
+  "steps": 2000,
+  "batch_size": 2,
+  "fsdp_devices": 1,
+  "num_workers": 4,
+  "save_interval": 500,
+  "log_interval": 25,
+  "seed": 42,
+  "optimizer": {
+    "b1": 0.9,
+    "b2": 0.95,
+    "eps": 1e-08,
+    "weight_decay": 1e-10,
+    "clip_gradient_norm": 1.0
+  },
+  "lr_schedule": {
+    "warmup_steps": 1000,
+    "peak_lr": 2.5e-05,
+    "decay_steps": 30000,
+    "decay_lr": 2.5e-06
+  },
+  "checkpoint_dir": "/mnt/robotics_ssd/ktt_rc_robotics_thesis/dataset/forcevla_mock_runs/checkpoints/doosan_forcevla_25d_32d_compat_contract/lora_force_first_2000_20261030_174216",
+  "dataset_dir": "/mnt/robotics_ssd/ktt_rc_robotics_thesis/dataset/forcevla_lerobot_language_v2_25d_train",
+  "freeze_allow_regex": "(?:PaliGemma/llm/.*lora.*|force_in_proj/.*|limoe/.*|state_proj/.*|action_in_proj/.*|action_out_proj/.*|action_time_mlp_in/.*|action_time_mlp_out/.*)",
+  "fingerprints": {
+    "/home/ktt_rc/robotics_thesis/forcevla_lab/scripts/forcevla_lora_first_run_v1.py": "7aaa1ec79eeb9c508b01d49c2b0982843748e3191fdaba79e32346df8e6b5425",
+    "/home/ktt_rc/robotics_thesis/forcevla_lab/scripts/forcevla_lora_mock.py": "97d439d06bf8fc76de6566e88e931de1a302684ffaf1fe87db95009b7d5e8785",
+    "/home/ktt_rc/robotics_thesis/forcevla_lab/ForceVLA_thesis/scripts/train.py": "19cf2f7cbb07a9b215d804a33d801e06aad57cad2483c14afbee993ba177ff6d",
+    "/home/ktt_rc/robotics_thesis/forcevla_lab/ForceVLA_thesis/src/openpi/models/pi0_force.py": "f45fa16339a17bdeb66f07cd0f570a8a003e7677eda93eb4dd3ce5ac6e61f97b",
+    "/home/ktt_rc/robotics_thesis/forcevla_lab/ForceVLA_thesis/src/openpi/training/checkpoints.py": "3cc32682ec3609e9075dabd991488edb9d7f6c045443f58963d733f99c468dbd",
+    "/mnt/robotics_ssd/ktt_rc_robotics_thesis/dataset/forcevla_lerobot_language_v2_25d_train/meta/info.json": "9c6b6ecaed55285285f729b85894b7644c059682ab90315e4906d594a92d6ac0",
+    "/home/ktt_rc/robotics_thesis/forcevla_lab/finetune_runs/assets/doosan_forcevla_25d_32d_compat_contract/forcevla_lerobot_language_v2_25d_train/norm_stats.json": "a3f33d33c9dd84a6d3dd35f7aa742ba0aace871ce686802b71fb14434a7b679e"
+  },
+  "resume_note": "Weights, optimizer state and step resume; exact shuffled loader position does not."
+}

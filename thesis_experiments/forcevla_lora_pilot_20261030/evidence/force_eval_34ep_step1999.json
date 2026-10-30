@@ -1,0 +1,286 @@
+{
+  "summary": {
+    "checkpoint_step": 1999,
+    "episodes_evaluated": 34,
+    "semantic_action_dims": 7,
+    "mae_actual": 0.800993,
+    "mae_masked": 0.801681,
+    "force_sensitivity": 0.100728,
+    "first_action_sensitivity": 0.087568,
+    "training_performed": false
+  },
+  "episodes": [
+    {
+      "episode": 255,
+      "mae_actual": 0.41713333318104007,
+      "mae_masked": 0.4303000476678641,
+      "force_sensitivity": 0.15301856398582458,
+      "first_action_sensitivity": 0.0815652385354042,
+      "seconds": 20.315
+    },
+    {
+      "episode": 256,
+      "mae_actual": 0.9206961243915985,
+      "mae_masked": 0.9413768137261942,
+      "force_sensitivity": 0.12087502330541611,
+      "first_action_sensitivity": 0.1316947638988495,
+      "seconds": 0.345
+    },
+    {
+      "episode": 257,
+      "mae_actual": 0.6755775465084934,
+      "mae_masked": 0.6593940102277115,
+      "force_sensitivity": 0.07496221363544464,
+      "first_action_sensitivity": 0.0778517872095108,
+      "seconds": 0.345
+    },
+    {
+      "episode": 258,
+      "mae_actual": 1.498239364252839,
+      "mae_masked": 1.4375981743380115,
+      "force_sensitivity": 0.14582403004169464,
+      "first_action_sensitivity": 0.1393677443265915,
+      "seconds": 0.345
+    },
+    {
+      "episode": 259,
+      "mae_actual": 1.4026043575747051,
+      "mae_masked": 1.3469782544686892,
+      "force_sensitivity": 0.13717547059059143,
+      "first_action_sensitivity": 0.17125196754932404,
+      "seconds": 0.344
+    },
+    {
+      "episode": 260,
+      "mae_actual": 1.0156656929676846,
+      "mae_masked": 1.000411380573925,
+      "force_sensitivity": 0.10157563537359238,
+      "first_action_sensitivity": 0.05290902405977249,
+      "seconds": 0.343
+    },
+    {
+      "episode": 261,
+      "mae_actual": 0.8433267700653273,
+      "mae_masked": 0.8442779940125034,
+      "force_sensitivity": 0.08106009662151337,
+      "first_action_sensitivity": 0.07627593725919724,
+      "seconds": 0.345
+    },
+    {
+      "episode": 262,
+      "mae_actual": 0.9093450637439686,
+      "mae_masked": 0.9142969475985079,
+      "force_sensitivity": 0.08117349445819855,
+      "first_action_sensitivity": 0.03975141420960426,
+      "seconds": 0.345
+    },
+    {
+      "episode": 263,
+      "mae_actual": 1.1511923472942478,
+      "mae_masked": 1.1832594120680635,
+      "force_sensitivity": 0.09188659489154816,
+      "first_action_sensitivity": 0.07580780982971191,
+      "seconds": 0.343
+    },
+    {
+      "episode": 264,
+      "mae_actual": 0.8409222708434472,
+      "mae_masked": 0.835685051956516,
+      "force_sensitivity": 0.060294199734926224,
+      "first_action_sensitivity": 0.041622184216976166,
+      "seconds": 0.343
+    },
+    {
+      "episode": 265,
+      "mae_actual": 0.6022047469985328,
+      "mae_masked": 0.6031679965716874,
+      "force_sensitivity": 0.0693424791097641,
+      "first_action_sensitivity": 0.08778948336839676,
+      "seconds": 0.343
+    },
+    {
+      "episode": 266,
+      "mae_actual": 0.8534718175180708,
+      "mae_masked": 0.8210162293691886,
+      "force_sensitivity": 0.18523822724819183,
+      "first_action_sensitivity": 0.12756605446338654,
+      "seconds": 0.345
+    },
+    {
+      "episode": 267,
+      "mae_actual": 0.9613192938248907,
+      "mae_masked": 0.95803527225934,
+      "force_sensitivity": 0.049791499972343445,
+      "first_action_sensitivity": 0.045542411506175995,
+      "seconds": 0.346
+    },
+    {
+      "episode": 268,
+      "mae_actual": 0.750572178984979,
+      "mae_masked": 0.7445160293635592,
+      "force_sensitivity": 0.05292883887887001,
+      "first_action_sensitivity": 0.06793759018182755,
+      "seconds": 0.343
+    },
+    {
+      "episode": 269,
+      "mae_actual": 1.0698105636884911,
+      "mae_masked": 1.0722482756987057,
+      "force_sensitivity": 0.09450250118970871,
+      "first_action_sensitivity": 0.05271857604384422,
+      "seconds": 0.346
+    },
+    {
+      "episode": 270,
+      "mae_actual": 1.2487657662809046,
+      "mae_masked": 1.191973811885407,
+      "force_sensitivity": 0.10941971093416214,
+      "first_action_sensitivity": 0.1035728007555008,
+      "seconds": 0.343
+    },
+    {
+      "episode": 271,
+      "mae_actual": 0.7728581868322841,
+      "mae_masked": 0.7613003992179161,
+      "force_sensitivity": 0.05650126934051514,
+      "first_action_sensitivity": 0.08907528966665268,
+      "seconds": 0.346
+    },
+    {
+      "episode": 272,
+      "mae_actual": 0.6846271192076595,
+      "mae_masked": 0.5593212013727417,
+      "force_sensitivity": 0.192085400223732,
+      "first_action_sensitivity": 0.13585706055164337,
+      "seconds": 0.346
+    },
+    {
+      "episode": 273,
+      "mae_actual": 0.7480362766492993,
+      "mae_masked": 0.7660063673396171,
+      "force_sensitivity": 0.05541994422674179,
+      "first_action_sensitivity": 0.029650475829839706,
+      "seconds": 0.342
+    },
+    {
+      "episode": 274,
+      "mae_actual": 0.5125106691003062,
+      "mae_masked": 0.5002606131356891,
+      "force_sensitivity": 0.04473021999001503,
+      "first_action_sensitivity": 0.08725432306528091,
+      "seconds": 0.347
+    },
+    {
+      "episode": 275,
+      "mae_actual": 0.687567533048681,
+      "mae_masked": 0.7220745953232199,
+      "force_sensitivity": 0.08172973990440369,
+      "first_action_sensitivity": 0.07178140431642532,
+      "seconds": 0.347
+    },
+    {
+      "episode": 276,
+      "mae_actual": 1.2933841359781248,
+      "mae_masked": 1.322643441525994,
+      "force_sensitivity": 0.05367084965109825,
+      "first_action_sensitivity": 0.04724744334816933,
+      "seconds": 0.344
+    },
+    {
+      "episode": 277,
+      "mae_actual": 0.6806401701274449,
+      "mae_masked": 0.6303064821579016,
+      "force_sensitivity": 0.14319323003292084,
+      "first_action_sensitivity": 0.15775351226329803,
+      "seconds": 0.344
+    },
+    {
+      "episode": 278,
+      "mae_actual": 0.5519813790791588,
+      "mae_masked": 0.5424728876232884,
+      "force_sensitivity": 0.060238976031541824,
+      "first_action_sensitivity": 0.0698198601603508,
+      "seconds": 0.347
+    },
+    {
+      "episode": 279,
+      "mae_actual": 0.4459634935798445,
+      "mae_masked": 0.5192871041532189,
+      "force_sensitivity": 0.12035670876502991,
+      "first_action_sensitivity": 0.13658002018928528,
+      "seconds": 0.346
+    },
+    {
+      "episode": 280,
+      "mae_actual": 0.5320052770383704,
+      "mae_masked": 0.6577239247072733,
+      "force_sensitivity": 0.2213311493396759,
+      "first_action_sensitivity": 0.11502908170223236,
+      "seconds": 0.347
+    },
+    {
+      "episode": 281,
+      "mae_actual": 0.8668207154656797,
+      "mae_masked": 0.8595196829385895,
+      "force_sensitivity": 0.04814424738287926,
+      "first_action_sensitivity": 0.03920287638902664,
+      "seconds": 0.346
+    },
+    {
+      "episode": 282,
+      "mae_actual": 0.36509478710683024,
+      "mae_masked": 0.43321010463446374,
+      "force_sensitivity": 0.13615873456001282,
+      "first_action_sensitivity": 0.10150057822465897,
+      "seconds": 0.346
+    },
+    {
+      "episode": 283,
+      "mae_actual": 0.6667233402314715,
+      "mae_masked": 0.6762187764440294,
+      "force_sensitivity": 0.157378152012825,
+      "first_action_sensitivity": 0.10636783391237259,
+      "seconds": 0.346
+    },
+    {
+      "episode": 284,
+      "mae_actual": 0.5590436650977773,
+      "mae_masked": 0.552077941633064,
+      "force_sensitivity": 0.04221507906913757,
+      "first_action_sensitivity": 0.02798593044281006,
+      "seconds": 0.344
+    },
+    {
+      "episode": 285,
+      "mae_actual": 0.5572414046865828,
+      "mae_masked": 0.614248593900872,
+      "force_sensitivity": 0.11545953154563904,
+      "first_action_sensitivity": 0.07998965680599213,
+      "seconds": 0.346
+    },
+    {
+      "episode": 286,
+      "mae_actual": 0.874784622775049,
+      "mae_masked": 0.8833293611826906,
+      "force_sensitivity": 0.08433214575052261,
+      "first_action_sensitivity": 0.07034685462713242,
+      "seconds": 0.346
+    },
+    {
+      "episode": 287,
+      "mae_actual": 0.4371415683896487,
+      "mae_masked": 0.43404417361923314,
+      "force_sensitivity": 0.03602207452058792,
+      "first_action_sensitivity": 0.03783085569739342,
+      "seconds": 0.346
+    },
+    {
+      "episode": 288,
+      "mae_actual": 0.8365057767720911,
+      "mae_masked": 0.8385829017366087,
+      "force_sensitivity": 0.16670773923397064,
+      "first_action_sensitivity": 0.20081476867198944,
+      "seconds": 0.347
+    }
+  ]
+}

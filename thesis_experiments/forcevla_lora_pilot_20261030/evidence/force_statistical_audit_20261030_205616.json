@@ -1,0 +1,44 @@
+{
+  "source": "/home/ktt_rc/robotics_thesis/forcevla_lab/logs/finetune_readiness/stratified_eval_20261030_203445.json",
+  "n_episodes": 34,
+  "n_observations": 102,
+  "n_paired_trials": 204,
+  "bootstrap_repetitions": 10000,
+  "bootstrap_unit": "episode",
+  "force_zero_definition": "training-set mean",
+  "comparisons": {
+    "actual_minus_zero": {
+      "mean_difference": 0.004573998351891837,
+      "bootstrap_95_percent_interval": [
+        -0.00470246232899965,
+        0.013493715745269084
+      ],
+      "episodes_recorded_force_better": 11,
+      "episodes_recorded_force_worse": 23,
+      "interval_contains_zero": true
+    },
+    "actual_minus_shuffled": {
+      "mean_difference": -0.004665296743897831,
+      "bootstrap_95_percent_interval": [
+        -0.01599156162610241,
+        0.007577370768230326
+      ],
+      "episodes_recorded_force_better": 19,
+      "episodes_recorded_force_worse": 15,
+      "interval_contains_zero": true
+    },
+    "first_action_actual_minus_zero": {
+      "mean_difference": 0.00011682758728663054,
+      "bootstrap_95_percent_interval": [
+        -0.010452498815150237,
+        0.009881809545571312
+      ],
+      "episodes_recorded_force_better": 13,
+      "episodes_recorded_force_worse": 21,
+      "interval_contains_zero": true
+    }
+  },
+  "midpoint_recorded_force_wins": 17,
+  "limitation": "Offline normalized action MAE, not insertion success. Episodes may have shared task structure; bootstrap intervals are descriptive.",
+  "training_performed": false
+}

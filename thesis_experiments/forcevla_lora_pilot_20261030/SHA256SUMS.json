@@ -1,0 +1,18 @@
+{
+  "README.md": "ac9fa767556bd1cf2215ccc7092d70c678b872831567734c641d1ce01aa28028",
+  "evidence/contact_metadata_audit_20261030_205537.json": "b1f9c4de4137b7916d7444d361bbd2288dbe2fd453b51a01d8f122557140d11e",
+  "evidence/force_eval_34ep_step1999.json": "b5da189a5cf2e335bb8d71fe73d405e4b0f07c3e6e1da046d4af92d15265670c",
+  "evidence/force_eval_6ep_step1999.json": "d299638070761a1e52f979b44f44126e444a44882c302efc808f9853243a0d1a",
+  "evidence/force_statistical_audit_20261030_205616.json": "adcd8bc587cb048736b350500449c7475d4d3686b5696e0768e1d43bdcb46a5b",
+  "evidence/longrun_readiness_20261030_204150.json": "988a0eeba5716b122824d06f8764318e430582cd22cb54f6a35bbd3422fa6014",
+  "evidence/lora_force_first_2000_20261030_174216.plan.json": "a2a2f558542662d190ef61b30fdce43622b951d2671e16071ddcbfe95201e025",
+  "evidence/performance_v2_20261030_170540.jsonl": "bc85e47aaf6947ef16fc8fd5fa5647d95f91af53c3efff0448133f0558db1c58",
+  "evidence/postrun_audit_20261030_200427.json": "351999f6b45d40bf7c9158e488bf22a283281eae7df8c8f3031b8dcc28888e0c",
+  "evidence/stratified_eval_20261030_203445.json": "9f0e646fd059d651ae8b2cd60f6b8574c0fca10f7903a526f8a944a561479f4b",
+  "scripts/forcevla_lora_first_run_v1.py": "7aaa1ec79eeb9c508b01d49c2b0982843748e3191fdaba79e32346df8e6b5425",
+  "scripts/forcevla_lora_mock.py": "97d439d06bf8fc76de6566e88e931de1a302684ffaf1fe87db95009b7d5e8785",
+  "scripts/forcevla_offline_eval_v1.py": "30bf5d9ce8576a7cc29eda2916a6935e29495a1eb144ffe0c61e3c944aec64da",
+  "scripts/forcevla_stratified_eval_v1.py": "7d91e88f29fd4ae73e7b64e22dd00c6df26974449bdb5eba8b858a7923089300",
+  "scripts/forcevla_validation_bridge_v1.py": "8d36132524e11d9d86c8da03d1b80a03158c73d32046e0de5ed48421b930eda2",
+  "scripts/run_forcevla_first_v1.sh": "b6ceb59c306b63b360e8406ea9bdfc2b8d94655dbb1c79d7222bd68a11b19b70"
+}

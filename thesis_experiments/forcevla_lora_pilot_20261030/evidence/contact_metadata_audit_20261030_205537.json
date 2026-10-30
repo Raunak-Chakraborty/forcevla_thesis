@@ -1,0 +1,120 @@
+{
+  "fps": 30,
+  "total_episodes": 323,
+  "total_frames": 361900,
+  "features": {
+    "action": {
+      "dtype": "float64",
+      "names": [
+        "delta_tcp_x_base_m",
+        "delta_tcp_y_base_m",
+        "delta_tcp_z_base_m",
+        "delta_rotvec_x_base_rad",
+        "delta_rotvec_y_base_rad",
+        "delta_rotvec_z_base_rad",
+        "absolute_gripper_target_open_fraction"
+      ],
+      "shape": [
+        7
+      ]
+    },
+    "episode_index": {
+      "dtype": "int64",
+      "names": null,
+      "shape": [
+        1
+      ]
+    },
+    "frame_index": {
+      "dtype": "int64",
+      "names": null,
+      "shape": [
+        1
+      ]
+    },
+    "index": {
+      "dtype": "int64",
+      "names": null,
+      "shape": [
+        1
+      ]
+    },
+    "observation.images.external_camera_2": {
+      "dtype": "video",
+      "names": [
+        "height",
+        "width",
+        "channels"
+      ],
+      "shape": [
+        480,
+        848,
+        3
+      ]
+    },
+    "observation.images.tcp_camera": {
+      "dtype": "video",
+      "names": [
+        "height",
+        "width",
+        "channels"
+      ],
+      "shape": [
+        480,
+        640,
+        3
+      ]
+    },
+    "observation.state": {
+      "dtype": "float64",
+      "names": [
+        "tcp_x_m",
+        "tcp_y_m",
+        "tcp_z_m",
+        "tcp_rotvec_x_rad",
+        "tcp_rotvec_y_rad",
+        "tcp_rotvec_z_rad",
+        "gripper_open_fraction",
+        "joint_1_position_rad",
+        "joint_2_position_rad",
+        "joint_3_position_rad",
+        "joint_4_position_rad",
+        "joint_5_position_rad",
+        "joint_6_position_rad",
+        "joint_1_velocity_rad_s",
+        "joint_2_velocity_rad_s",
+        "joint_3_velocity_rad_s",
+        "joint_4_velocity_rad_s",
+        "joint_5_velocity_rad_s",
+        "joint_6_velocity_rad_s",
+        "force_x_n",
+        "force_y_n",
+        "force_z_n",
+        "torque_x_nm",
+        "torque_y_nm",
+        "torque_z_nm"
+      ],
+      "shape": [
+        25
+      ]
+    },
+    "task_index": {
+      "dtype": "int64",
+      "names": null,
+      "shape": [
+        1
+      ]
+    },
+    "timestamp": {
+      "dtype": "float32",
+      "names": null,
+      "shape": [
+        1
+      ]
+    }
+  },
+  "contact_candidates": [],
+  "force_candidates": [],
+  "explicit_contact_labels_verified": false,
+  "note": "Metadata-only audit. No matching field does not prove original ROS bags lack contact information. Packed state may contain force without an individually named field."
+}

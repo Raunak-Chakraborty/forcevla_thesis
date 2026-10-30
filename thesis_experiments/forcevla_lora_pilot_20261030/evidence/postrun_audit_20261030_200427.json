@@ -1,0 +1,20 @@
+{
+  "experiment": "lora_force_first_2000_20261030_174216",
+  "checkpoint": "/mnt/robotics_ssd/ktt_rc_robotics_thesis/dataset/forcevla_mock_runs/checkpoints/doosan_forcevla_25d_32d_compat_contract/lora_force_first_2000_20261030_174216/1999",
+  "completed_updates": 2000,
+  "logged_steps": 80,
+  "losses": {
+    "first_200": 3.069387,
+    "last_500": 0.16833
+  },
+  "train_episodes": 255,
+  "full_episodes": 323,
+  "full_dataset_splits": {
+    "test": "289:323",
+    "train": "0:255",
+    "val": "255:289"
+  },
+  "source_hashes_match": true,
+  "rng_fold_in": true,
+  "32d_loss": true
+}

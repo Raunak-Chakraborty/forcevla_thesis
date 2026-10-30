@@ -1,0 +1,7 @@
+{"type": "cpu", "workers": 0, "batch_size": 2, "setup_seconds": 91.28, "first_batch_seconds": 1.509, "samples_per_second": 1.613, "measured_batches": 6}
+{"type": "cpu", "workers": 2, "batch_size": 2, "setup_seconds": 101.086, "first_batch_seconds": 14.784, "samples_per_second": 3.087, "measured_batches": 6}
+{"type": "cpu", "workers": 4, "batch_size": 2, "setup_seconds": 95.981, "first_batch_seconds": 28.322, "samples_per_second": 8.121, "measured_batches": 6}
+{"type": "gpu", "fsdp_devices": 2, "batch_size": 2, "workers": 0, "steps": 8, "measured_intervals": 7, "median_step_seconds": 2.042, "samples_per_second": 0.97, "checkpoint_saved": false}
+{"type": "gpu", "fsdp_devices": 2, "batch_size": 2, "workers": 4, "steps": 8, "measured_intervals": 7, "median_step_seconds": 0.672, "samples_per_second": 2.978, "checkpoint_saved": false}
+{"type": "gpu", "fsdp_devices": 2, "batch_size": 4, "workers": 4, "steps": 8, "measured_intervals": 7, "median_step_seconds": 0.977, "samples_per_second": 4.083, "checkpoint_saved": false}
+{"type": "gpu", "fsdp_devices": 1, "batch_size": 2, "workers": 4, "steps": 8, "measured_intervals": 7, "median_step_seconds": 0.367, "samples_per_second": 5.343, "checkpoint_saved": false}
