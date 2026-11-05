@@ -1,0 +1,142 @@
+{
+  "schema": "forcevla-validation-checkpoint-comparison-v1",
+  "dataset_split": "validation_255_to_288",
+  "validation_episodes": 34,
+  "sample_policy": "one_midpoint_per_episode",
+  "baseline_step": 2000,
+  "baseline_mae": 0.8009934517436921,
+  "training_performed": false,
+  "test_split_evaluated": false,
+  "results": {
+    "5000": {
+      "mae_actual": 0.6763699396453157,
+      "mae_masked": 0.6773670873351394,
+      "improvement_percent_vs_2000": 15.558618091955935,
+      "paired_mae_reduction_95pct_bootstrap_ci": [
+        0.07254178785369522,
+        0.17755438564428944
+      ],
+      "force_sensitivity": 0.037701,
+      "first_action_mae": 0.610867,
+      "mae_per_semantic_dimension": [
+        0.80523,
+        0.834441,
+        0.871233,
+        0.83598,
+        0.762568,
+        0.604124,
+        0.021014
+      ],
+      "task_groups": {
+        "inclined": {
+          "episodes": 15,
+          "mae": 0.6789903359068493,
+          "baseline_mae": 0.8174913061654173
+        },
+        "upright": {
+          "episodes": 19,
+          "mae": 0.6743012057546311,
+          "baseline_mae": 0.7879688298318034
+        }
+      }
+    },
+    "10000": {
+      "mae_actual": 0.6282571704279889,
+      "mae_masked": 0.6283754740686188,
+      "improvement_percent_vs_2000": 21.565255114092576,
+      "paired_mae_reduction_95pct_bootstrap_ci": [
+        0.1228493829457508,
+        0.2232286297194937
+      ],
+      "force_sensitivity": 0.025221,
+      "first_action_mae": 0.528792,
+      "mae_per_semantic_dimension": [
+        0.85723,
+        0.855515,
+        0.789829,
+        0.698904,
+        0.708666,
+        0.464642,
+        0.023015
+      ],
+      "task_groups": {
+        "inclined": {
+          "episodes": 15,
+          "mae": 0.6108067883145274,
+          "baseline_mae": 0.8174913061654173
+        },
+        "upright": {
+          "episodes": 19,
+          "mae": 0.6420337878859846,
+          "baseline_mae": 0.7879688298318034
+        }
+      }
+    },
+    "20000": {
+      "mae_actual": 0.6049337979197645,
+      "mae_masked": 0.6083847473342435,
+      "improvement_percent_vs_2000": 24.47706075463201,
+      "paired_mae_reduction_95pct_bootstrap_ci": [
+        0.14309229630908663,
+        0.2505491914394654
+      ],
+      "force_sensitivity": 0.014168,
+      "first_action_mae": 0.437133,
+      "mae_per_semantic_dimension": [
+        0.766484,
+        0.795722,
+        0.823306,
+        0.656482,
+        0.670671,
+        0.511633,
+        0.010238
+      ],
+      "task_groups": {
+        "inclined": {
+          "episodes": 15,
+          "mae": 0.6186807402861089,
+          "baseline_mae": 0.8174913061654173
+        },
+        "upright": {
+          "episodes": 19,
+          "mae": 0.5940809486831771,
+          "baseline_mae": 0.7879688298318034
+        }
+      }
+    },
+    "30000": {
+      "mae_actual": 0.5916154955319551,
+      "mae_masked": 0.5940975677896607,
+      "improvement_percent_vs_2000": 26.13978375927289,
+      "paired_mae_reduction_95pct_bootstrap_ci": [
+        0.1560038906929607,
+        0.26302684689624806
+      ],
+      "force_sensitivity": 0.014986,
+      "first_action_mae": 0.423538,
+      "mae_per_semantic_dimension": [
+        0.769906,
+        0.800287,
+        0.840189,
+        0.635248,
+        0.673448,
+        0.413004,
+        0.009226
+      ],
+      "task_groups": {
+        "inclined": {
+          "episodes": 15,
+          "mae": 0.5831048234873586,
+          "baseline_mae": 0.8174913061654173
+        },
+        "upright": {
+          "episodes": 19,
+          "mae": 0.59833444714611,
+          "baseline_mae": 0.7879688298318034
+        }
+      }
+    }
+  },
+  "best_checkpoint_by_validation_mae": 30000,
+  "selection_note": "Exploratory selection on 34 validation midpoints; not evidence of closed-loop task success"
+}

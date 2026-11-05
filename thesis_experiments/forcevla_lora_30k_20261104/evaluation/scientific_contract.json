@@ -1,0 +1,49 @@
+{
+  "action_dimensions": 32,
+  "action_horizon": 50,
+  "batch_size": 2,
+  "dataset_contract": {
+    "batch_size": 2,
+    "dataset_info_sha256": "9c6b6ecaed55285285f729b85894b7644c059682ab90315e4906d594a92d6ac0",
+    "dataset_size": 289703,
+    "norm_stats_sha256": "a3f33d33c9dd84a6d3dd35f7aa742ba0aace871ce686802b71fb14434a7b679e",
+    "seed": 42
+  },
+  "experiment": "LORA_5H_20261104",
+  "fsdp_devices": 1,
+  "optimizer": {
+    "b1": 0.9,
+    "b2": 0.95,
+    "clip_gradient_norm": 1.0,
+    "eps": 1e-08,
+    "weight_decay": 1e-10
+  },
+  "save_every": 1000,
+  "schedule": {
+    "decay_lr": 2.5e-06,
+    "decay_steps": 30000,
+    "peak_lr": 2.5e-05,
+    "warmup_steps": 1000
+  },
+  "schema": "forcevla-reliable-science-v1",
+  "seed": 42,
+  "semantic_action_dimensions": 7,
+  "source_sha256": {
+    "scripts/train.py": "19cf2f7cbb07a9b215d804a33d801e06aad57cad2483c14afbee993ba177ff6d",
+    "scripts/train_forcevla_reliable_v1.py": "8b2d188f7a68ba5ed4a5d27f4c66be290d4089bb723aeca0d4ffc2fd78d0fdaa",
+    "src/openpi/models/lora.py": "ced28716950c34d84a1a6d0b03b1d9550000732721df884818080b6e78cb3289",
+    "src/openpi/models/pi0_force.py": "f45fa16339a17bdeb66f07cd0f570a8a003e7677eda93eb4dd3ce5ac6e61f97b",
+    "src/openpi/training/checkpoints.py": "407fe14efdc72044e1a337e08d5c70319b800794f1c6a5ae3819b9b05775a52e",
+    "src/openpi/training/data_loader.py": "ced313e3a4ece18f259f49c87767128dbceee4b89a362c0716939f534e2af292",
+    "src/openpi/training/forcevla_reliable_loader.py": "26d0e67e4f146ea01669dc8678ff3de068e802abaab98b9bceac8cb7e6fe6b7e",
+    "src/openpi/training/forcevla_replay.py": "dc1b3511d483114c3a7fd0d82edeeb673d758e93614bab92e387c01809fcdd47",
+    "thesis_experiments/forcevla_lora_pilot_20261030/scripts/forcevla_lora_mock.py": "97d439d06bf8fc76de6566e88e931de1a302684ffaf1fe87db95009b7d5e8785"
+  },
+  "target_updates": 30000,
+  "trainable_allow_regex": "(?:PaliGemma/llm/.*lora.*|force_in_proj/.*|limoe/.*|state_proj/.*|action_in_proj/.*|action_out_proj/.*|action_time_mlp_in/.*|action_time_mlp_out/.*)",
+  "workers": 4,
+  "wrench_start_end": [
+    19,
+    25
+  ]
+}

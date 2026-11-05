@@ -1,0 +1,717 @@
+{
+  "episodes": [
+    {
+      "episode": 255,
+      "first_action_mae_actual": 0.5687579682761388,
+      "first_action_mae_masked": 0.5693794935807969,
+      "first_action_sensitivity": 0.009215114638209343,
+      "force_sensitivity": 0.023707939311861992,
+      "frame_index": 289880,
+      "mae_actual": 0.45760997617940524,
+      "mae_masked": 0.4505806722263964,
+      "mae_per_semantic_dimension": [
+        1.1077353104794314,
+        0.20297894813844233,
+        1.1351265344441885,
+        0.39502944350225333,
+        0.3072685748204708,
+        0.05050780067982173,
+        0.004623221191228651
+      ],
+      "seconds": 19.637
+    },
+    {
+      "episode": 256,
+      "first_action_mae_actual": 0.5162189805414559,
+      "first_action_mae_masked": 0.5231275973908102,
+      "first_action_sensitivity": 0.011875523254275322,
+      "force_sensitivity": 0.021045304834842682,
+      "frame_index": 290210,
+      "mae_actual": 0.8043147642610344,
+      "mae_masked": 0.8030534917149994,
+      "mae_per_semantic_dimension": [
+        1.1568377233082172,
+        1.2048949566045284,
+        1.1720278405494484,
+        1.118327515420597,
+        0.6744168806224675,
+        0.2957076383346483,
+        0.007990794987333499
+      ],
+      "seconds": 0.387
+    },
+    {
+      "episode": 257,
+      "first_action_mae_actual": 0.051103135102743495,
+      "first_action_mae_masked": 0.05012085481431968,
+      "first_action_sensitivity": 0.0022830578964203596,
+      "force_sensitivity": 0.007869113236665726,
+      "frame_index": 290913,
+      "mae_actual": 0.2475910821578946,
+      "mae_masked": 0.25116089081875104,
+      "mae_per_semantic_dimension": [
+        0.25654505435257646,
+        0.507919654325105,
+        0.5179475326775679,
+        0.18846209626248203,
+        0.09315788889715756,
+        0.1614042245650234,
+        0.007701124025349941
+      ],
+      "seconds": 0.391
+    },
+    {
+      "episode": 258,
+      "first_action_mae_actual": 0.6306527367061864,
+      "first_action_mae_masked": 0.6118759140358068,
+      "first_action_sensitivity": 0.03679657354950905,
+      "force_sensitivity": 0.026718780398368835,
+      "frame_index": 291739,
+      "mae_actual": 1.0294917589593429,
+      "mae_masked": 1.0290468615873771,
+      "mae_per_semantic_dimension": [
+        1.1721042523482759,
+        1.7687630265623042,
+        1.0244250085948936,
+        1.6477893558279137,
+        1.4025382472915715,
+        0.17383247057013057,
+        0.016989951520311162
+      ],
+      "seconds": 0.39
+    },
+    {
+      "episode": 259,
+      "first_action_mae_actual": 0.8572782582739141,
+      "first_action_mae_masked": 0.8547003850609636,
+      "first_action_sensitivity": 0.005617876071482897,
+      "force_sensitivity": 0.01756986416876316,
+      "frame_index": 292279,
+      "mae_actual": 0.847179002102699,
+      "mae_masked": 0.8461522344788796,
+      "mae_per_semantic_dimension": [
+        1.4774250932196167,
+        1.313047610329419,
+        1.2068821224668675,
+        0.8259430142800571,
+        0.6991491859957958,
+        0.39553727696174784,
+        0.012268711465389269
+      ],
+      "seconds": 0.394
+    },
+    {
+      "episode": 260,
+      "first_action_mae_actual": 0.9971347147715298,
+      "first_action_mae_masked": 0.9941102377920698,
+      "first_action_sensitivity": 0.004512508865445852,
+      "force_sensitivity": 0.014423643238842487,
+      "frame_index": 292794,
+      "mae_actual": 0.8280167491605378,
+      "mae_masked": 0.8284877607537152,
+      "mae_per_semantic_dimension": [
+        1.3754176766969721,
+        1.4118235821724487,
+        0.6439654850783094,
+        1.282491870382998,
+        0.6892088622309083,
+        0.38469468991806877,
+        0.008515077644059088
+      ],
+      "seconds": 0.388
+    },
+    {
+      "episode": 261,
+      "first_action_mae_actual": 0.26004428339756996,
+      "first_action_mae_masked": 0.26052871881752115,
+      "first_action_sensitivity": 0.001308768754824996,
+      "force_sensitivity": 0.009493598714470863,
+      "frame_index": 293532,
+      "mae_actual": 0.4213202760687508,
+      "mae_masked": 0.4235118741439955,
+      "mae_per_semantic_dimension": [
+        0.37291169084387826,
+        0.8313264936902531,
+        0.5177779734839417,
+        0.3465476761580108,
+        0.8161380303960596,
+        0.052120741837250704,
+        0.012419326071860826
+      ],
+      "seconds": 0.389
+    },
+    {
+      "episode": 262,
+      "first_action_mae_actual": 0.6342737015015959,
+      "first_action_mae_masked": 0.6252542212816868,
+      "first_action_sensitivity": 0.015317326411604881,
+      "force_sensitivity": 0.028509624302387238,
+      "frame_index": 294295,
+      "mae_actual": 0.7818242661735615,
+      "mae_masked": 0.7674102879614003,
+      "mae_per_semantic_dimension": [
+        0.6077087339048084,
+        0.788116536672153,
+        1.6079787024711107,
+        0.21997738013277282,
+        1.5795921435703308,
+        0.6554976940184168,
+        0.013898672445337958
+      ],
+      "seconds": 0.39
+    },
+    {
+      "episode": 263,
+      "first_action_mae_actual": 0.16496867753040423,
+      "first_action_mae_masked": 0.1646942417803285,
+      "first_action_sensitivity": 0.005132035352289677,
+      "force_sensitivity": 0.0133409034460783,
+      "frame_index": 294797,
+      "mae_actual": 0.9128537024038402,
+      "mae_masked": 0.9149179719942329,
+      "mae_per_semantic_dimension": [
+        1.0648650745072552,
+        1.2869029833707541,
+        1.3914690320034526,
+        0.8137216878259796,
+        1.3810274898686918,
+        0.4442274284991472,
+        0.007762220751600059
+      ],
+      "seconds": 0.389
+    },
+    {
+      "episode": 264,
+      "first_action_mae_actual": 0.36477912948879965,
+      "first_action_mae_masked": 0.362282066337372,
+      "first_action_sensitivity": 0.004208278376609087,
+      "force_sensitivity": 0.013113622553646564,
+      "frame_index": 295281,
+      "mae_actual": 0.8606440496759556,
+      "mae_masked": 0.8609420522088324,
+      "mae_per_semantic_dimension": [
+        0.8583863261854715,
+        0.48011156491018375,
+        0.6939583819386657,
+        2.8914371108829875,
+        0.7256297585889648,
+        0.36866999366036296,
+        0.006315211565053316
+      ],
+      "seconds": 0.389
+    },
+    {
+      "episode": 265,
+      "first_action_mae_actual": 0.3394779359299596,
+      "first_action_mae_masked": 0.3407023712636543,
+      "first_action_sensitivity": 0.005766041111201048,
+      "force_sensitivity": 0.01581694930791855,
+      "frame_index": 295855,
+      "mae_actual": 0.46344531764689373,
+      "mae_masked": 0.4717200345843614,
+      "mae_per_semantic_dimension": [
+        0.5364040099884384,
+        0.7948232773655041,
+        0.755806265813379,
+        0.2861007434322373,
+        0.4072762309721867,
+        0.4585263011056274,
+        0.005180394850883059
+      ],
+      "seconds": 0.388
+    },
+    {
+      "episode": 266,
+      "first_action_mae_actual": 0.8236171917300863,
+      "first_action_mae_masked": 0.8204328266214771,
+      "first_action_sensitivity": 0.013413382694125175,
+      "force_sensitivity": 0.018361680209636688,
+      "frame_index": 296527,
+      "mae_actual": 0.8112347307933098,
+      "mae_masked": 0.8165437015388579,
+      "mae_per_semantic_dimension": [
+        0.7956115483595677,
+        0.44365710975134315,
+        1.0570162798450922,
+        0.6307686623841583,
+        1.7523725175695737,
+        0.9827378079415162,
+        0.016479189701917467
+      ],
+      "seconds": 0.39
+    },
+    {
+      "episode": 267,
+      "first_action_mae_actual": 0.017552576105451998,
+      "first_action_mae_masked": 0.01723852011423657,
+      "first_action_sensitivity": 0.002300228225067258,
+      "force_sensitivity": 0.015446164645254612,
+      "frame_index": 297256,
+      "mae_actual": 0.6802448467972373,
+      "mae_masked": 0.6867482862446621,
+      "mae_per_semantic_dimension": [
+        0.4118926924349695,
+        0.8496671475405633,
+        0.7891218893588967,
+        0.3291149469062617,
+        0.710730540072905,
+        1.6668714663571589,
+        0.004315244909905325
+      ],
+      "seconds": 0.387
+    },
+    {
+      "episode": 268,
+      "first_action_mae_actual": 0.4937301738527956,
+      "first_action_mae_masked": 0.4953052074323495,
+      "first_action_sensitivity": 0.008130212314426899,
+      "force_sensitivity": 0.011546476744115353,
+      "frame_index": 298018,
+      "mae_actual": 0.4708450099624217,
+      "mae_masked": 0.47344246014909014,
+      "mae_per_semantic_dimension": [
+        1.09307582708571,
+        1.0654012163366422,
+        0.6481403766605929,
+        0.09849582425617473,
+        0.29550973718873874,
+        0.08935169309877539,
+        0.005940395110318084
+      ],
+      "seconds": 0.388
+    },
+    {
+      "episode": 269,
+      "first_action_mae_actual": 0.289782350015083,
+      "first_action_mae_masked": 0.2923933069989899,
+      "first_action_sensitivity": 0.004412803333252668,
+      "force_sensitivity": 0.015491167083382607,
+      "frame_index": 299066,
+      "mae_actual": 0.6854941607807268,
+      "mae_masked": 0.6914740634390375,
+      "mae_per_semantic_dimension": [
+        1.1379184413555927,
+        0.7896851062850504,
+        0.8131149587633563,
+        1.1450495103981368,
+        0.7393200061958435,
+        0.16201720730229272,
+        0.011353895164814434
+      ],
+      "seconds": 0.386
+    },
+    {
+      "episode": 270,
+      "first_action_mae_actual": 0.4534208430455709,
+      "first_action_mae_masked": 0.45683495754408326,
+      "first_action_sensitivity": 0.003711901605129242,
+      "force_sensitivity": 0.01052720658481121,
+      "frame_index": 299987,
+      "mae_actual": 0.9061607680089925,
+      "mae_masked": 0.9060357134548582,
+      "mae_per_semantic_dimension": [
+        0.617318766196146,
+        1.714070039735504,
+        0.743534438330106,
+        0.8823934258191274,
+        2.068542799072457,
+        0.311345687359329,
+        0.005920219550279826
+      ],
+      "seconds": 0.389
+    },
+    {
+      "episode": 271,
+      "first_action_mae_actual": 0.18769441235352372,
+      "first_action_mae_masked": 0.19042522363438733,
+      "first_action_sensitivity": 0.0034064066130667925,
+      "force_sensitivity": 0.006385392509400845,
+      "frame_index": 300542,
+      "mae_actual": 0.41298715109013107,
+      "mae_masked": 0.41643047927008986,
+      "mae_per_semantic_dimension": [
+        0.27085917798150627,
+        0.5664675830266925,
+        0.7274513928356385,
+        0.5269786022353976,
+        0.19929841297785608,
+        0.5870213682144978,
+        0.012833520359328362
+      ],
+      "seconds": 0.392
+    },
+    {
+      "episode": 272,
+      "first_action_mae_actual": 0.19397983545263614,
+      "first_action_mae_masked": 0.19568260817215563,
+      "first_action_sensitivity": 0.006045051850378513,
+      "force_sensitivity": 0.014244982972741127,
+      "frame_index": 301036,
+      "mae_actual": 0.3812402890621921,
+      "mae_masked": 0.3887747037814631,
+      "mae_per_semantic_dimension": [
+        0.4168996662181758,
+        0.21594735967714523,
+        0.7722335957166448,
+        0.6276849871997985,
+        0.3577779256386192,
+        0.26495061263324404,
+        0.01318787635171681
+      ],
+      "seconds": 0.393
+    },
+    {
+      "episode": 273,
+      "first_action_mae_actual": 1.2132097885102984,
+      "first_action_mae_masked": 1.215737527830781,
+      "first_action_sensitivity": 0.003923739772289991,
+      "force_sensitivity": 0.015248769894242287,
+      "frame_index": 301602,
+      "mae_actual": 0.7053119511846521,
+      "mae_masked": 0.7117303917305898,
+      "mae_per_semantic_dimension": [
+        1.046007681376862,
+        0.8944849728585393,
+        0.8693825527021031,
+        0.5692189261994508,
+        1.2865282635287056,
+        0.26296304771424944,
+        0.008598213912654452
+      ],
+      "seconds": 0.389
+    },
+    {
+      "episode": 274,
+      "first_action_mae_actual": 0.09508003878134356,
+      "first_action_mae_masked": 0.09469788095334121,
+      "first_action_sensitivity": 0.0033595748245716095,
+      "force_sensitivity": 0.005207470618188381,
+      "frame_index": 302279,
+      "mae_actual": 0.25799063384537013,
+      "mae_masked": 0.2590795145710375,
+      "mae_per_semantic_dimension": [
+        0.36202142894121087,
+        0.8000331663202441,
+        0.435542819227535,
+        0.09397550737714423,
+        0.08613194528224395,
+        0.02311473271388469,
+        0.005114837055327939
+      ],
+      "seconds": 0.395
+    },
+    {
+      "episode": 275,
+      "first_action_mae_actual": 0.13468296128622606,
+      "first_action_mae_masked": 0.12924992394132756,
+      "first_action_sensitivity": 0.009320588782429695,
+      "force_sensitivity": 0.02934013307094574,
+      "frame_index": 302869,
+      "mae_actual": 0.7806963808330958,
+      "mae_masked": 0.7893273819924622,
+      "mae_per_semantic_dimension": [
+        1.4347318095538375,
+        1.2643675925821745,
+        1.0151494090952908,
+        0.4211086832802249,
+        0.6500242127630901,
+        0.6719682651340705,
+        0.007524693422982123
+      ],
+      "seconds": 0.39
+    },
+    {
+      "episode": 276,
+      "first_action_mae_actual": 0.6592669446100228,
+      "first_action_mae_masked": 0.6569771385165344,
+      "first_action_sensitivity": 0.0049513280391693115,
+      "force_sensitivity": 0.00848100520670414,
+      "frame_index": 303489,
+      "mae_actual": 1.0100327120971444,
+      "mae_masked": 1.013444496241301,
+      "mae_per_semantic_dimension": [
+        0.5975920496195066,
+        0.9950773366310972,
+        1.6488966503818885,
+        2.516694120586792,
+        0.854634681516814,
+        0.4473755600002041,
+        0.009958585943709054
+      ],
+      "seconds": 0.389
+    },
+    {
+      "episode": 277,
+      "first_action_mae_actual": 0.58600677724782,
+      "first_action_mae_masked": 0.5820812201325717,
+      "first_action_sensitivity": 0.005387325771152973,
+      "force_sensitivity": 0.01218395121395588,
+      "frame_index": 304185,
+      "mae_actual": 0.4724260547638472,
+      "mae_masked": 0.4722223266988015,
+      "mae_per_semantic_dimension": [
+        0.5332787941763736,
+        0.25244885026630376,
+        0.942225028952803,
+        0.388747045028829,
+        0.1554933338637932,
+        1.026777189127132,
+        0.008012141931696155
+      ],
+      "seconds": 0.392
+    },
+    {
+      "episode": 278,
+      "first_action_mae_actual": 0.24639738842634615,
+      "first_action_mae_masked": 0.24476549733751982,
+      "first_action_sensitivity": 0.005314966198056936,
+      "force_sensitivity": 0.006756046786904335,
+      "frame_index": 305426,
+      "mae_actual": 0.3709413474205432,
+      "mae_masked": 0.3705034786785264,
+      "mae_per_semantic_dimension": [
+        0.34689337788530783,
+        0.7384201668062321,
+        0.584188517625285,
+        0.3519361467991715,
+        0.34327561666005,
+        0.22709817125649454,
+        0.004777434911261242
+      ],
+      "seconds": 0.39
+    },
+    {
+      "episode": 279,
+      "first_action_mae_actual": 0.4877494646146983,
+      "first_action_mae_masked": 0.48369384218178524,
+      "first_action_sensitivity": 0.012539106421172619,
+      "force_sensitivity": 0.015332278795540333,
+      "frame_index": 307318,
+      "mae_actual": 0.32406407523657843,
+      "mae_masked": 0.3335190121748993,
+      "mae_per_semantic_dimension": [
+        0.7662572966122514,
+        0.1769773400620228,
+        0.8390563398590273,
+        0.04223060177119119,
+        0.12952390477649994,
+        0.30692218847414066,
+        0.0074808551009156845
+      ],
+      "seconds": 0.39
+    },
+    {
+      "episode": 280,
+      "first_action_mae_actual": 0.2854729302627933,
+      "first_action_mae_masked": 0.26592450401359574,
+      "first_action_sensitivity": 0.02235082909464836,
+      "force_sensitivity": 0.023698311299085617,
+      "frame_index": 309093,
+      "mae_actual": 0.42799114628616575,
+      "mae_masked": 0.42965429914067677,
+      "mae_per_semantic_dimension": [
+        1.1633486807143953,
+        0.6446123642532515,
+        0.44577324938776625,
+        0.22906976983114408,
+        0.40308718576646446,
+        0.09894708766114325,
+        0.011099686388994869
+      ],
+      "seconds": 0.392
+    },
+    {
+      "episode": 281,
+      "first_action_mae_actual": 0.4480581866529921,
+      "first_action_mae_masked": 0.4324200949185146,
+      "first_action_sensitivity": 0.015638092532753944,
+      "force_sensitivity": 0.017638130113482475,
+      "frame_index": 310593,
+      "mae_actual": 0.524807030337849,
+      "mae_masked": 0.5276446863273685,
+      "mae_per_semantic_dimension": [
+        0.6724512907449034,
+        0.6816672554122011,
+        0.3721554004718556,
+        0.36968011454702016,
+        1.1188784516515429,
+        0.444733232250387,
+        0.014083467287033063
+      ],
+      "seconds": 0.389
+    },
+    {
+      "episode": 282,
+      "first_action_mae_actual": 0.21589142291941127,
+      "first_action_mae_masked": 0.20649581716796495,
+      "first_action_sensitivity": 0.00984420720487833,
+      "force_sensitivity": 0.019158823415637016,
+      "frame_index": 312679,
+      "mae_actual": 0.29031978105086814,
+      "mae_masked": 0.2924940682126821,
+      "mae_per_semantic_dimension": [
+        0.5653933935666756,
+        0.4981107647456545,
+        0.3359659262545634,
+        0.46261066497904074,
+        0.09943419676171424,
+        0.05264078579997949,
+        0.018082735248449142
+      ],
+      "seconds": 0.391
+    },
+    {
+      "episode": 283,
+      "first_action_mae_actual": 0.40542878544518995,
+      "first_action_mae_masked": 0.41413528380412085,
+      "first_action_sensitivity": 0.016072293743491173,
+      "force_sensitivity": 0.022318365052342415,
+      "frame_index": 314743,
+      "mae_actual": 0.4782473945113062,
+      "mae_masked": 0.49040545515546846,
+      "mae_per_semantic_dimension": [
+        0.5156109437941144,
+        1.0219221137028038,
+        1.2327358663915262,
+        0.2048320918270444,
+        0.15814177516463915,
+        0.20824865002617343,
+        0.006240320672841819
+      ],
+      "seconds": 0.392
+    },
+    {
+      "episode": 284,
+      "first_action_mae_actual": 0.35014337583190347,
+      "first_action_mae_masked": 0.3521803603096278,
+      "first_action_sensitivity": 0.003626819234341383,
+      "force_sensitivity": 0.011145397089421749,
+      "frame_index": 315945,
+      "mae_actual": 0.5764841871844043,
+      "mae_masked": 0.5788217564304049,
+      "mae_per_semantic_dimension": [
+        1.0154136497953785,
+        1.168205729352965,
+        1.1619508739698872,
+        0.38517873402051167,
+        0.24958949684729478,
+        0.04565600082530031,
+        0.009394825479492172
+      ],
+      "seconds": 0.39
+    },
+    {
+      "episode": 285,
+      "first_action_mae_actual": 0.12743495546054334,
+      "first_action_mae_masked": 0.12901729757737077,
+      "first_action_sensitivity": 0.002305020811036229,
+      "force_sensitivity": 0.006615523714572191,
+      "frame_index": 317383,
+      "mae_actual": 0.22020744492859218,
+      "mae_masked": 0.22362205064413876,
+      "mae_per_semantic_dimension": [
+        0.01887803366888193,
+        0.05051894823042481,
+        0.01456116187633161,
+        0.12011637828056326,
+        0.08757159306855572,
+        1.2457250529057615,
+        0.004080946469626533
+      ],
+      "seconds": 0.393
+    },
+    {
+      "episode": 286,
+      "first_action_mae_actual": 0.5938160813822743,
+      "first_action_mae_masked": 0.6045928789578843,
+      "first_action_sensitivity": 0.012092242017388344,
+      "force_sensitivity": 0.01013216283172369,
+      "frame_index": 319797,
+      "mae_actual": 0.7521758608893755,
+      "mae_masked": 0.7546552250929452,
+      "mae_per_semantic_dimension": [
+        1.1862490983734022,
+        0.4132993508163041,
+        0.6351674726758696,
+        0.7744019117891844,
+        1.0321974322603746,
+        1.215618954674226,
+        0.008296805636269049
+      ],
+      "seconds": 0.393
+    },
+    {
+      "episode": 287,
+      "first_action_mae_actual": 0.5117331757491884,
+      "first_action_mae_masked": 0.5149103438630331,
+      "first_action_sensitivity": 0.0070932465605437756,
+      "force_sensitivity": 0.006680900231003761,
+      "frame_index": 321778,
+      "mae_actual": 0.4148786703694337,
+      "mae_masked": 0.414393076488007,
+      "mae_per_semantic_dimension": [
+        0.79592622283136,
+        0.2466810346627407,
+        0.8210271250309813,
+        0.3667982142631254,
+        0.5563269314207254,
+        0.10673903342217296,
+        0.010652130954930214
+      ],
+      "seconds": 0.392
+    },
+    {
+      "episode": 288,
+      "first_action_mae_actual": 0.19544428021129373,
+      "first_action_mae_masked": 0.18837848435080987,
+      "first_action_sensitivity": 0.0108617153018713,
+      "force_sensitivity": 0.015972312539815903,
+      "frame_index": 323321,
+      "mae_actual": 0.505854275862314,
+      "mae_masked": 0.5113665449181497,
+      "mae_per_semantic_dimension": [
+        0.4268428988626386,
+        1.1273281454249713,
+        0.994677592934716,
+        0.04550501328604099,
+        0.7874521100832024,
+        0.15258046183121798,
+        0.006593708613410953
+      ],
+      "seconds": 0.392
+    }
+  ],
+  "summary": {
+    "checkpoint_receipt_sha256": "5c389c29b138b147594d89da1c87b74ebf399af05b18be99ec522df3d4084c31",
+    "checkpoint_step": 30000,
+    "delta_mae_vs_pilot": -0.209378,
+    "episodes_evaluated": 34,
+    "evaluator_source_sha256": {
+      "forcevla_offline_eval_v1.py": "30bf5d9ce8576a7cc29eda2916a6935e29495a1eb144ffe0c61e3c944aec64da",
+      "forcevla_validation_bridge_v1.py": "8d36132524e11d9d86c8da03d1b80a03158c73d32046e0de5ed48421b930eda2"
+    },
+    "first_action_mae_actual": 0.423538,
+    "first_action_mae_masked": 0.421775,
+    "first_action_sensitivity": 0.008475,
+    "force_sensitivity": 0.014986,
+    "inference_only": true,
+    "mae_actual": 0.591615,
+    "mae_masked": 0.594098,
+    "mae_per_semantic_dimension": [
+      0.769906,
+      0.800287,
+      0.840189,
+      0.635248,
+      0.673448,
+      0.413004,
+      0.009226
+    ],
+    "metric_note": "Open-loop normalized 50x7 action MAE on one midpoint per episode; no robot task-success claim",
+    "normalization_units": "TRAINING_NORMALIZED_ACTIONS",
+    "pilot_2000_step_mae_actual": 0.800993,
+    "recorded_force_better_than_masked": true,
+    "seconds_total": 190.28,
+    "semantic_action_dims": 7,
+    "validation_only": true
+  }
+}

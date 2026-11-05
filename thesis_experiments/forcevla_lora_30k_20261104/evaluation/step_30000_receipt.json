@@ -1,0 +1,117 @@
+{
+  "completed_updates": 30000,
+  "files": {
+    "_CHECKPOINT_METADATA": {
+      "sha256": "a09a0b6dad9e0923e99339488ce516953abb21f6efce26a06d0bd1799a49593a",
+      "size": 426
+    },
+    "assets/forcevla_lerobot_language_v2_25d_train/norm_stats.json": {
+      "sha256": "a3f33d33c9dd84a6d3dd35f7aa742ba0aace871ce686802b71fb14434a7b679e",
+      "size": 2776
+    },
+    "params/_METADATA": {
+      "sha256": "26f3574372144c491f21c860882094146fbe234edd2a20676ca8f16e595e3938",
+      "size": 42973
+    },
+    "params/_sharding": {
+      "sha256": "44aefad30bd157d534ed1db001f7f0f8144bd051d48555a7c63c4aa3b6099959",
+      "size": 25229
+    },
+    "params/array_metadatas/process_0": {
+      "sha256": "b04e6660b33168817457d5f3a8b641c83e649ad52a805f4b359cdde424f66ba7",
+      "size": 16855
+    },
+    "params/d/9b9ad543f3586c88f715032bfe714582": {
+      "sha256": "11407036c1627eb9c848574c974f814a00eb7713ec8512b55f76904b010f1eb5",
+      "size": 10887
+    },
+    "params/manifest.ocdbt": {
+      "sha256": "b8298f175a1d28dfbf996fce94db739bec588981d5026db59a3e1c7c5cb37968",
+      "size": 118
+    },
+    "params/ocdbt.process_0/d/2381ac1df11e417cd35f507062d325cc": {
+      "sha256": "477e5a14748ef0627d599c106483370164ff0cb6d0609ef7ff7405544caa5c08",
+      "size": 1657
+    },
+    "params/ocdbt.process_0/d/3ad735d42cca406fea2d6d6301b27286": {
+      "sha256": "ed6f35f9e74afb923b0fac924e7e7e0a4a7456655d08d3cf5ded051bb088bd56",
+      "size": 2837999616
+    },
+    "params/ocdbt.process_0/d/3dc703023014e5d52dd9bdbd4db197cb": {
+      "sha256": "e7e8ede2c2982b8a1c443b8556344860f8c4f6956c92c9397b67d284dc61e0d4",
+      "size": 1598
+    },
+    "params/ocdbt.process_0/d/86c967ea2aa0c4ea3b17f9b0974ef3f6": {
+      "sha256": "19b44afadcf617462c284630dc228b95b9053ff7e24b7f45e0d87338af815d7e",
+      "size": 2251898880
+    },
+    "params/ocdbt.process_0/d/9ef42eeab1d5c04b956de1470947e766": {
+      "sha256": "bc432139101599b97705361fa84c4d2390471f41967468a9da37c33d49033ba4",
+      "size": 402993152
+    },
+    "params/ocdbt.process_0/d/c8e4ffb0bc1a1c52dcdf724769647b94": {
+      "sha256": "0f3521c03017aed32ef3364b391a136d2d79fa6a8a7bb18096f1fe666ce3b11a",
+      "size": 10871
+    },
+    "params/ocdbt.process_0/d/daaf0af202d860c0022cfb0f90ed978a": {
+      "sha256": "c105b62eda9aa3605ad6e8f75c8c3bc4a49cc0e2e0180ec3a7adf96efa7dce9f",
+      "size": 290442
+    },
+    "params/ocdbt.process_0/d/f6bc806cd47d9eacdf221d5f1ad5344a": {
+      "sha256": "4b9ce7a26da5830698d7a509d429cf9924aac2762ded3442766cb4e31cbe6e25",
+      "size": 220
+    },
+    "params/ocdbt.process_0/manifest.ocdbt": {
+      "sha256": "472c009f4efa374367a1b3366af00dc30f01463c4c09f384d3d04123c625dee3",
+      "size": 395
+    },
+    "train_state/_METADATA": {
+      "sha256": "3d60ff393a8a4667183edcf380ed47529c9f5e6a964112bda7d74b78d7be90ce",
+      "size": 61005
+    },
+    "train_state/_sharding": {
+      "sha256": "0c05f9c2d0a3da65972e347446c74f8e32aef851d1d3c52b919e3eab276f1b9c",
+      "size": 30874
+    },
+    "train_state/array_metadatas/process_0": {
+      "sha256": "6aa1f3b8b2b8e5ce00d1e526f8f758c5b63bb2085494e1cfbb13d03e0f3e6ad6",
+      "size": 20479
+    },
+    "train_state/d/ab9b764d233cf916598f330a36597fa3": {
+      "sha256": "e0381003caab3a2ab780216b5b7343d6a75d617e2ad09027cf8bdbd79d7aa220",
+      "size": 3470
+    },
+    "train_state/manifest.ocdbt": {
+      "sha256": "5601c92ff50e3b9997730051f0ea5716f5dd2811dc79965032f9f90fcaa54c6a",
+      "size": 118
+    },
+    "train_state/ocdbt.process_0/d/4340b32230bb7abad4db8e271e26cfa9": {
+      "sha256": "3f41c2b4678dcc3be492a4167f31f7fca81a2e76d9390050f4cf7ef8080d6b61",
+      "size": 785883136
+    },
+    "train_state/ocdbt.process_0/d/8490c357f86a07c7d56311f42a070bcf": {
+      "sha256": "abfe4b17bb24c95bc7d8eb862bde14b26fb7f7842946526d2c33dab2bd30cd4f",
+      "size": 1177
+    },
+    "train_state/ocdbt.process_0/d/95d9866a30876561a6f27733f1fea9bd": {
+      "sha256": "e8bbd42cd7771e154ade8d5005a6c962777da74be7382d0ba7fff19dee1fc8d8",
+      "size": 198
+    },
+    "train_state/ocdbt.process_0/d/c17b633bbce4fb3e01cf3cc23169a1c0": {
+      "sha256": "6741fda89bae3a04c1ecd010f109433852af5062b930523eae58097c97e93568",
+      "size": 1138
+    },
+    "train_state/ocdbt.process_0/d/c4eb557af7812a371325f8517887a79f": {
+      "sha256": "f25fd2959941b790c2e3e6e3d6f358e145fd2f6ebce6c45d8d01c9aa30ec4966",
+      "size": 1154
+    },
+    "train_state/ocdbt.process_0/manifest.ocdbt": {
+      "sha256": "bfb6d58cf603f0622c30811d5a9d4ea85947f59fa871c31df2f8a021b653d757",
+      "size": 292
+    }
+  },
+  "folder": "30000",
+  "restore_tested": false,
+  "schema": "forcevla-checksummed-orbax-v1",
+  "time_utc": "2026-11-04T19:16:03.943000+00:00"
+}
